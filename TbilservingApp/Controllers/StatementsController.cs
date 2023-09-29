@@ -25,7 +25,7 @@ namespace TbilservingApp.Controllers
             this.statementService = statementService;
             
         }
-
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] AddStatementDto addStatementDto)
         {

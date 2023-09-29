@@ -5,6 +5,7 @@ using Infrastructure.Database.Implementations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TbilservingApp.Application.Interfaces.Repository;
 
 namespace Infrastructure.Database
 {

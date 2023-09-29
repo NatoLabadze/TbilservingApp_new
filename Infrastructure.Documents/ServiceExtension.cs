@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TbilservingApp.Application.Interfaces.Repository;
 
 namespace Infrastructure.Documents
 {

@@ -17,6 +17,7 @@ namespace Infrastructure.Database
         public DbSet<Document> Documents { get; set; }
         public DbSet<Statement> Statements { get; set; }
         public DbSet<Message> Messages { get; set; }
+      //  public DbSet<MessageType> MessageType { get; set; }
 
 
 

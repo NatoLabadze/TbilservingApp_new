@@ -18,6 +18,7 @@ namespace Core.Application
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<UserServices>();
             services.AddScoped<StatementsService>();
+            //services.AddScoped<SmsService>();
             
             // services.AddScoped<DocumentService>();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

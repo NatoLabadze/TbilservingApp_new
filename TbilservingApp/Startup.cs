@@ -23,7 +23,17 @@ namespace TbilservingApp
         }
 
         public IConfiguration Configuration { get; }
-
+        //public static void ConfigureCors(this IServiceCollection services)
+        //{
+        //    services.AddCors(options =>
+        //    {
+        //        options.AddPolicy(name: "AnyPolicy", builder => builder
+        //            .AllowAnyOrigin() // დაშვება ეძლევა მოთხოვნას ნებისმიერი წყაროდან
+        //            .AllowAnyMethod() // დაშვებას იძლევა HTTP ყველა მეთოდზე
+        //            .AllowAnyHeader()
+        //            .WithExposedHeaders("AccessToken"));
+        //    });
+        //}
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -65,6 +75,16 @@ namespace TbilservingApp
             services.AddJwtAuthenticationConfigs(Configuration);
             services.AddJwtAuthorizationConfigs();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AnyPolicy",
+                builder =>
+                {
+                    // Not a permanent solution, but just trying to isolate the problem
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+            services.AddControllers();
 
         }
 
@@ -72,6 +92,7 @@ namespace TbilservingApp
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
+            app.UseCors("AnyPolicy");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -84,7 +105,7 @@ namespace TbilservingApp
 
             app.UseHttpsRedirection();
 
-
+            app.UseCors("AnyPolicy");
             app.UseRouting();
             app.UseAuthentication();
 

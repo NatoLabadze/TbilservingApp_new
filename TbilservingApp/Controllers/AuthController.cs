@@ -59,6 +59,7 @@ namespace TbilservingApp.Controllers
             await userServices.AddUser(userDTO);
             return Ok();
         }
+        [AllowAnonymous]
         [HttpPost("confirmSignUp")]
         public async Task<IActionResult> SignUpConfirm([FromBody] SignUpSmsConfirmRequest request)
         {

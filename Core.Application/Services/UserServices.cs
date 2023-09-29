@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-
+using TbilservingApp.Application.Interfaces.Repository;
 
 namespace Core.Application.Services
 {
@@ -27,16 +27,22 @@ namespace Core.Application.Services
         }
         public async Task AddUser(UserDTO userDTO)
         {
-            userDTO.Password = BCrypt.Net.BCrypt.HashPassword(userDTO.Password);
+            string randomNumber = new Random().Next(0, 10000).ToString("D4");
+          //  var test = await smsService.Send(userDTO.phoneNumber, randomNumber, 1);
+         
+
+          //  var test = await smsService.Send(userDTO.phoneNumber, randomNumber, 1);
+           
             var user = mapper.Map<User>(userDTO);
             user.PhoneNumberConfirmed = false;
+            user.Password = BCrypt.Net.BCrypt.HashPassword(userDTO.Password);
             user.TwoFactorEnabled = false;
             
             await userRepository.Add(user);
 
 
-            var result = smsService.Send("591687688", "testtest", 1);
-            string randomNumber = new Random().Next(0, 10000).ToString("D4");
+            //var result = smsService.Send("591687688", "testtest", 1);
+          
 
             var sms = new Message()
             {
@@ -50,7 +56,7 @@ namespace Core.Application.Services
                 Addressee = user.Id,
                 Author = user.Id,
             };
-            await messageRepository.Add(sms);
+          await messageRepository.Add(sms);
         }
 
         public async Task<User> SignUpSmsConfirm(SignUpSmsConfirmRequest request )
