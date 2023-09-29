@@ -17,23 +17,16 @@ namespace TbilservingApp.Controllers
     public class StatementsController : ControllerBase
     {
         StatementsService statementService;
-        
-        
 
         public StatementsController(StatementsService statementService)
         {
             this.statementService = statementService;
-            
+
         }
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] AddStatementDto addStatementDto)
         {
-            
-            //await statementService.AddStatment(addStatementDto);
-            //return Ok();
-           // string result =  statementService.StatementAdd(addStatementDto);
-          // await statementService.StatementAdd(addStatementDto);
             string result = await statementService.StatementAdd(addStatementDto);
             return Ok(result);
 

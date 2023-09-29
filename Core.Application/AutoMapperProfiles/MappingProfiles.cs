@@ -14,13 +14,10 @@ namespace Core.Application.AutoMapperProfiles
         {
             CreateUsersMapping();
             CreateMap<AddStatementDto, Statement>();
-        }
-       
+        }       
         private void CreateUsersMapping()
-        {
-          
+        {         
             CreateMap<UserDTO, User>();
-
         }
     }
 }

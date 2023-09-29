@@ -14,19 +14,5 @@ namespace Infrastructure.Database.Implementations
 
         }
 
-        //public void AddDocument(Document document)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
-
-
-
-
-        //public IEnumerable<Document> GetDocumentsByStatementId(int id)
-        //{
-        //    return context.Documents.Where(x => x.StatementId == id).ToList();
-        //}
     }
 }

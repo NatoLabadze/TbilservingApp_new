@@ -76,27 +76,5 @@ namespace TbilservingApp.Controllers
 
             return Ok("sms კოდი დადასტურდა");
         }
-    //    public async Task<IActionResult> ConfirmPasswordRecovery([FromBody] PasswordRecoverySmsConfirmRequest command)
-    //    {
-    //        var confirmedPerson =await userServices.Send(command);
-
-    //        var token = JwtAuthenticationExtensions.GenerateJwtToken();
-
-    //        Response.Headers.Add("AccessToken", token);
-
-    //        return Ok( "sms კოდი დადასტურდა");
-    //    }
-    //    [HttpPost("phoneNumberChange")]
-    //    public Task<object> PhoneNumberChange([FromBody] ChangePhoneNumberRequest command) => mediator.Send(command);
-    //    [HttpPost("confirmphoneNumberChange")]
-    //    public async Task<IActionResult> ConfirmPhoneNumberChange([FromBody] ChangePhoneNumberConfirmRequest command)
-    //    {
-    //        var confirmedPerson = await mediator.Send(command);
-    //        var token = JwtAuthenticationExtensions.GenerateJwtToken(configuration, confirmedPerson.Id.ToString(), confirmedPerson.UserName, confirmedPerson.Person.LastName);
-
-    //        Response.Headers.Add("AccessToken", token);
-
-    //        return Ok(Result.Success(true, "sms კოდი დადასტურდა"));
-    //    }
     }
 }

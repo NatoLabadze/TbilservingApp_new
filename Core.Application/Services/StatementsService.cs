@@ -32,16 +32,7 @@ namespace Core.Application.Services
             this.documentService = documentService;
             this.documentRepository = documentRepository;
         }
-        // public async Task<int> AddStatementReturnId(Statement statement)
-        // {
-        // int returnedStatementId = 0;
-        //  Add(statement);
-        //  context.SaveChanges();
 
-        //returnedStatementId = statementsRepository..OrderByDescending(x => x.Id).FirstOrDefault().Id;
-        // return await statementsRepository.Add(statement);
-        // return returnedStatementId;
-        //  }
         public async Task<string> StatementAdd(AddStatementDto addStatementDto)
         {
 
@@ -51,24 +42,6 @@ namespace Core.Application.Services
             statement.Comment = addStatementDto.Comment;
 
             int statementId = await statementsRepository.AddStatementReturnIdss(statement);
-
-
-            //if (addStatementDto.Files == null)
-            //{
-            //    throw new System.Exception("No Files Provided!");
-            //}
-            //var files = addStatementDto.Files.ToList();
-            //var file = files[0];
-            //Document documentInfo = new Document();
-            //using (MemoryStream stream = new MemoryStream())
-            //{
-            //    await file.CopyToAsync(stream);
-            //    stream.Position = 0;
-            //    string objectName = await documentService.UploadFileMinio(file, stream);
-            //    documentInfo.FileName = objectName;
-            //    documentInfo.StatementId = statementId;
-            //    await documentRepository.Add(documentInfo);
-            //}
 
             if (addStatementDto.Files != null)
             {

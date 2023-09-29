@@ -11,8 +11,6 @@ namespace Core.Domain
         public string LastName { get; set; }
         public string PrivateNumber { get; set; }
         public string Address { get; set; }
-        //  public DateTime BirtDate { get; set; }
-        // public List<Loan> loans { get; set; 
         public string UserName { get; set; }
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
